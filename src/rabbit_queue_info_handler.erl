@@ -4,7 +4,6 @@
 
 init(Req0, _Opts) ->
     #{max_len := MaxLenBin} = cowboy_req:match_qs([{max_len, [], undefined}], Req0),
-    io:format("Echange name: ~p", [MaxLenBin]),
     Queues = rabbit_queue_info_worker:list_queues(),
     QueuesFiltered = case MaxLenBin of
                          undefined ->
