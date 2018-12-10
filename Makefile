@@ -3,12 +3,10 @@ PROJECT_DESCRIPTION = RabbitMQ queue info plugin
 PROJECT_MOD = rabbit_queue_info_app
 
 define PROJECT_ENV
-[
-	    {exchange, <<"greetings">>}
-	  ]
+[]
 endef
 
-DEPS = rabbit_common rabbit amqp_client cowboy
+DEPS = rabbit_common rabbit cowboy
 TEST_DEPS = rabbitmq_ct_helpers rabbitmq_ct_client_helpers
 
 DEP_EARLY_PLUGINS = rabbit_common/mk/rabbitmq-early-plugin.mk
