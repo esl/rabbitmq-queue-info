@@ -69,4 +69,7 @@ receive_queues(Ref, Chunks, Acc) ->
             MsgReady = proplists:get_value(messages_ready, Items),
             receive_queues(Ref, Chunks, [#{name => Name,
                                            messages_ready => MsgReady} | Acc])
+    after
+        4000 ->
+            Acc
     end.
