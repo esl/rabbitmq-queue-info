@@ -1,14 +1,14 @@
 # rabbitmq-queue-info
 
-This is a proof-of-concept RabbitMQ plugin that allows to list queue
+This is a proof-of-concept RabbitMQ plugin that allows to list queues'
 parameters in an alternative way than [RabbitMQ Management plugin](https://www.rabbitmq.com/management.html).
 
 Currently the plugin returns only `name` and `messages_ready` queue parameters.
 It can be modified in [`rabbit_queue_info_worker`](./src/rabbit_queue_info_worker.erl)
 module.
 
-Once the plugin is up and running it exposes HTTP `/list_queues` endpoint on port `8000`.
-Additionaly, it is possible to use query string `max_len=$X` to filter out queues that
+Once the plugin is up and running it exposes `/list_queues` HTTP endpoint on port `8000`.
+Additionaly, it is possible to use `max_len=$X` query string to filter out queues that
 has `messages_ready` greater than `$X`.
 
 **The plugin was tested with RabbitMQ 3.7.8 in both single and multi node installations.**
